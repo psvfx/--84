@@ -5,7 +5,7 @@
   --secondary-font: 'Raleway', sans-serif;
   --basic-margin: 20px;
 }
-/* === Ресет стилів браузера ===*/
+/* === РЕСЕТ стилів браузера ===*/
 h1,
 h2,
 h3,
@@ -56,6 +56,11 @@ body {
   border: 1px solid var(--accent-color);
   border-radius: 25px;
   padding: 12px 20px;
+  transition: color 350ms linear, background-color 350ms linear;
+}
+.btn:is(:hover, :focus) {
+  color: #fff;
+  background-color: var(--accent-color);
 }
 .title {
   font-family: 'Raleway', sans-serif;
@@ -93,15 +98,19 @@ body {
   overflow: hidden;
 }
 
-/* ========== Header ============ */
+/* ========== HEADER ============ */
 
 .header {
-  background-color: gray;
   padding: 32px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 .header-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .header-navigation {
   display: flex;
@@ -114,19 +123,32 @@ body {
   display: flex;
   gap: 30px;
 }
-/* .header-item {
-} */
 .header-link {
   font-weight: 600;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.1em;
   color: #ffffff;
+  position: relative;
+  transition: color 350ms;
 }
 .header-link:hover,
 .header-link:focus {
   color: var(--accent-color);
 }
+/* === Підкреслення активної сторінки==== */
+/* .header-link.active {
+  color: var(--accent-color);
+}
+.header-link.active::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+} */
 .header-tel {
   font-weight: 600;
   font-size: 12px;
@@ -136,11 +158,17 @@ body {
   color: #ffffff;
   margin-left: auto;
   margin-right: 43px;
+  transition: color 350ms;
 }
-/* .header-btn {
-} */
+.header-tel:hover,
+.header-tel:focus {
+  color: var(--accent-color);
+}
+.header-btn {
+  margin-right: 17px;
+}
 
-/* =========== Hero ============ */
+/* =========== HERO ============ */
 /* .hero {
 } */
 .hero-container {
@@ -148,6 +176,25 @@ body {
 }
 .hero-list {
   width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  transform: rotate(-90deg) translateY(100%);
+  transform-origin: bottom left;
+  padding-top: 22px;
+  position: relative;
+  padding-left: 40px;
+}
+.hero-list::before {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background-color: #303030;
+  flex-shrink: 0;
+}
+.hero-list-wrap {
+  display: flex;
+  align-items: flex-end;
 }
 .hero-content {
   background-color: gray;
@@ -169,6 +216,7 @@ body {
   line-height: 1.36;
   letter-spacing: 0.2em;
   color: #303030;
+  transition: color 350ms linear;
 }
 .hero-link:hover,
 .hero-link:focus {
@@ -193,7 +241,7 @@ body {
   color: #9da4bd;
 }
 
-/* ========= About ========== */
+/* ========= ABOUT ========== */
 
 .about {
   padding: 120px 0;
@@ -243,7 +291,7 @@ body {
   color: #303030;
 }
 
-/* ========== Services ========= */
+/* ========== SERVICES ========= */
 
 .services {
   background-image: url(../images/services-bg-png.png);
@@ -308,7 +356,7 @@ body {
   margin: 0 auto;
 }
 
-/* ========== Benefits =========== */
+/* ========== BENEFITS =========== */
 
 .benefits {
   padding: 120px 0;
@@ -340,8 +388,7 @@ body {
   text-align: center;
   letter-spacing: 0.05em;
   color: #303030;
-  display: flex;
-  align-items: flex-start;
+  position: relative;
 }
 .benefits-item > span::after {
   content: '+';
@@ -349,6 +396,9 @@ body {
   font-size: 600;
   line-height: calc(22 / 16);
   color: var(--accent-color);
+  position: absolute;
+  right: -10px;
+  top: 7px;
 }
 .benefits-item-text {
   font-weight: 600;
@@ -377,7 +427,7 @@ body {
   color: #555555;
 }
 
-/* =========== Barbers ========== */
+/* =========== BARBERS ========== */
 
 .barbers {
   background-color: #f7f7f7;
@@ -427,19 +477,20 @@ body {
   width: 44px;
   height: 44px;
 }
-.barbers-socia-link {
+.barbers-social-link {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #000;
+  color: #303030;
+  transition: color 350ms linear;
 }
-.barbers-socia-link:hover,
-.barbers-socia-link:focus .barbers-social-icon {
-  fill: var(--accent-color);
+.barbers-social-icon {
+  fill: currentColor;
+}
+.barbers-social-link:is(:hover, :focus) {
+  color: var(--accent-color);
 }
 
 /* ========= Gallery ========== */
@@ -538,6 +589,7 @@ body {
   line-height: calc(15 / 11);
   letter-spacing: 0.2em;
   color: #303030;
+  transition: color 350ms;
 }
 /* -- варіант для кожного посиляння-- */
 /* .social-link {
