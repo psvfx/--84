@@ -616,3 +616,60 @@ body {
   height: 1px;
   background-color: #303030;
 }
+.form-input {
+  width: 100%;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding-bottom: 8px;
+  transition: border 350ms, color 350ms;
+}
+.form-input::placeholder {
+  color: rgba(157, 164, 189, 0.4);
+}
+.form-input:focus {
+  outline: none;
+  border-bottom-color: #ffffff;
+}
+.form-input:focus::placeholder {
+  color: #ffffff;
+}
+.contact-form {
+  padding-right: 30px;
+}
+.contact-form-textarea {
+  min-height: 76px;
+  resize: none;
+}
+.contact-form-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-group {
+  width: 100%;
+  margin-bottom: 44px;
+}
+.form-group:nth-child(1),
+.form-group:nth-child(2) {
+  width: 50%;
+}
+.form-group:nth-child(1) {
+  padding-right: 15px;
+}
+.form-group:nth-child(2) {
+  padding-left: 15px;
+}
+.contact-form-input:not(:focus):not(:placeholder-shown):valid {
+  background-color: green;
+}
+.contact-form-input:not(:focus):not(:placeholder-shown):invalid {
+  background-color: red;
+}
